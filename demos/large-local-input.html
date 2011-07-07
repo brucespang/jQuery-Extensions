@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Autocomplete - Default functionality</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+	<script src="../jquery.ui.autocomplete.quickSearch.js"></script>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css">
+	<script>
+	$(function() {
+		function randomString(length){
+			var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			var string = "";
+			for(var i = 0; i < length; i++){
+				string += letters[Math.floor(Math.random() * letters.length)];
+			}
+			return string;
+		}
+
+		var availableTags = [];
+		for(var i = 0; i < 100000; i++){
+			availableTags[i] = randomString(6);
+		}
+		$( "#tags" ).autocomplete({
+			source: availableTags
+		});
+	});
+	</script>
+</head>
+<body>
+	
+<div class="demo">
+
+<div class="ui-widget">
+	<label for="tags">Tags: </label>
+	<input id="tags">
+</div>
+
+</div><!-- End demo -->
+
+
+
+<div class="demo-description">
+<p>The Autocomplete widgets provides suggestions while you type into the field. Here the suggestions are random strings of 6 characters.</p>
+<p>The datasource is a simple JavaScript array, with a length of 100,000, provided to the widget using the source-option.</p>
+</div><!-- End demo-description -->
+
+</body>
+</html>
